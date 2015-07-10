@@ -1,7 +1,7 @@
 #ifndef _FLOOR_H_
 #define _FLOOR_H_
 
-#include "Definitons.h"
+#include "Definitions.h"
 #include "cocos2d.h"
 USING_NS_CC;
 

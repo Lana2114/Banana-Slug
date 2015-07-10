@@ -2,7 +2,7 @@
 #define _PIXEL_H_
 
 #include "cocos2d.h"
-#include "Definitons.h"
+#include "Definitions.h"
 
 USING_NS_CC;
 
