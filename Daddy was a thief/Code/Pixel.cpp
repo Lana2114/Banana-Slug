@@ -16,9 +16,14 @@ Pixel::Pixel(Layer* layer)
 
 	pixelTexture->setPhysicsBody(pixelBody);
 
-	auto moveTo = MoveTo::create(1.5f, Vec2(origin.x+visibleSize.width/(24/23), origin.y + visibleSize.height / 1.5));
+	/*auto moveTo = MoveTo::create(1.5f, Vec2(origin.x+visibleSize.width/(24/23), origin.y + visibleSize.height / 1.5));
 	auto moveTo2 = MoveTo::create(1.5f, Vec2(origin.x + visibleSize.width / 24, origin.y + visibleSize.height / 1.5));
-	auto sequence = Sequence::create(moveTo, moveTo2, nullptr);
+	auto sequence = Sequence::create(moveTo, moveTo2, nullptr);*/
+	//pixelTexture->runAction(RepeatForever::create(sequence));
+
+	auto moveBy = MoveBy::create(1.5f, Vec2(440,0));
+	auto moveBy2 = MoveBy::create(1.5f, Vec2(-440, 0));
+	auto sequence = Sequence::create(moveBy, moveBy2, nullptr);
 	pixelTexture->runAction(RepeatForever::create(sequence));
 	
 	layer->addChild(pixelTexture,100);
