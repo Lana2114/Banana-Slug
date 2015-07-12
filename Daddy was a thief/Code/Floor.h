@@ -3,12 +3,14 @@
 
 #include "Definitions.h"
 #include "cocos2d.h"
+#include "Pixel.h"
 USING_NS_CC;
 
 class Floor
 {
 public:
 	Floor(Layer* layer);
+	void removeFloor();
 private:
 	std::vector<Sprite*> MyFloor;
 	cocos2d::Sprite* floorTexture;

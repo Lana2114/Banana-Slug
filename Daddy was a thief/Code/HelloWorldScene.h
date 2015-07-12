@@ -29,6 +29,14 @@ public:
 
 	Floor* floor;
 
+	float _TouchStart;
+	Point _GestureStartPoint;
+	Point _GestureEndPoint;
+	long milisecondNow();
+	bool onTouchBegan(Touch *touch, Event *unsuedEvent);
+	void onTouchMoved(Touch *touch, Event *unusedEvent);
+	void onTouchEnded(Touch *touch, Event *unusedEvent);
+
 	// implement the "static create()" method manually
 	CREATE_FUNC(HelloWorld);
 };

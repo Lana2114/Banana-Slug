@@ -6,7 +6,7 @@ Pixel::Pixel(Layer* layer)
 	visibleSize = Director::getInstance()->getVisibleSize();
 
 	pixelTexture = Sprite::create("pixel.png");
-	pixelTexture->setPosition(20, origin.y+visibleSize.height/1.5);
+	pixelTexture->setPosition(origin.x+visibleSize.width/24, origin.y+visibleSize.height/1.5);
 	
 	pixelBody = PhysicsBody::createCircle(pixelTexture->getContentSize().width / 2);
 	pixelBody->setCategoryBitmask(eObjectBitmask::PIXEL);
@@ -16,19 +16,19 @@ Pixel::Pixel(Layer* layer)
 
 	pixelTexture->setPhysicsBody(pixelBody);
 
-	auto moveTo = MoveTo::create(1.5f, Vec2(460, origin.y + visibleSize.height / 1.5));
-	auto moveTo2 = MoveTo::create(1.5f, Vec2(20, origin.y + visibleSize.height / 1.5));
+	auto moveTo = MoveTo::create(1.5f, Vec2(origin.x+visibleSize.width/(24/23), origin.y + visibleSize.height / 1.5));
+	auto moveTo2 = MoveTo::create(1.5f, Vec2(origin.x + visibleSize.width / 24, origin.y + visibleSize.height / 1.5));
 	auto sequence = Sequence::create(moveTo, moveTo2, nullptr);
 	pixelTexture->runAction(RepeatForever::create(sequence));
+	
 	layer->addChild(pixelTexture,100);
 
-	isContact = true;
 }
 
-void Pixel::update()
+void Pixel::jumpUp()
 {
-	if (isContact == true)
-	{
-		
-	}
+	auto jumpTo = JumpTo::create(0.5, pixelTexture->getPosition(), visibleSize.height/(20/3), 1);
+	pixelTexture->runAction(jumpTo);
+
 }
+

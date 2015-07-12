@@ -10,7 +10,9 @@ class Pixel
 {
 public:
 	Pixel(Layer* layer);
-	void update();
+	//void update();
+	void jumpUp();
+	void jumpDown();
 	bool isContact;
 
 private:
@@ -20,5 +22,6 @@ private:
 	Size visibleSize;
 	Vec2 origin;
 	
+	float velocityY;
 };
 #endif //_PIXEL_H_

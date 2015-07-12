@@ -1,4 +1,5 @@
 #include "Floor.h"
+#include "Pixel.h"
 
 Floor::Floor(Layer* layer)
 {
@@ -57,4 +58,9 @@ Floor::Floor(Layer* layer)
 	}
 	
 }
+
+//void Floor::removeFloor()
+//{
+//	floorTexture->removeFromParent();
+//}
 
