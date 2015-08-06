@@ -35,7 +35,7 @@ bool IntroScene::init()
 
 	// position the label on the center of the screen
 	label->setPosition(Vec2(origin.x + visibleSize.width / 2,
-		origin.y + visibleSize.height/2));
+		origin.y + visibleSize.height / 2));
 
 	// add the label as a child to this layer
 	this->addChild(label, 1);
@@ -50,4 +50,3 @@ void IntroScene::gotoMenuScene(float dt)
 	auto menuScene = MenuScene::createScene();
 	Director::getInstance()->replaceScene(menuScene);
 }
-

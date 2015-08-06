@@ -1,5 +1,6 @@
 #include "AppDelegate.h"
 #include "IntroScene.h"
+#include "PlayScene.h"
 
 USING_NS_CC;
 
@@ -35,12 +36,12 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	auto glview = director->getOpenGLView();
 	if (!glview) {
 		glview = GLViewImpl::create("Double F");
-		glview->setFrameSize(800, 480);
+		glview->setFrameSize(800, 450);
 		director->setOpenGLView(glview);
 	}
-	glview->setDesignResolutionSize(800, 480, ResolutionPolicy::EXACT_FIT);
+	glview->setDesignResolutionSize(800, 450, ResolutionPolicy::EXACT_FIT);
 	// turn on display FPS
-	director->setDisplayStats(true);
+	director->setDisplayStats(false);
 
 	// set FPS. the default value is 1.0/60 if you don't call this
 	director->setAnimationInterval(1.0 / 60);
@@ -48,7 +49,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 	register_all_packages();
 
 	// create a scene. it's an autorelease object
-	auto scene = IntroScene::createScene();
+	auto scene = PlayScene::createScene();
 
 	// run
 	director->runWithScene(scene);
@@ -59,6 +60,7 @@ bool AppDelegate::applicationDidFinishLaunching() {
 // This function will be called when the app is inactive. When comes a phone call,it's be invoked too
 void AppDelegate::applicationDidEnterBackground() {
 	Director::getInstance()->stopAnimation();
+	
 
 	// if you use SimpleAudioEngine, it must be pause
 	// SimpleAudioEngine::getInstance()->pauseBackgroundMusic();

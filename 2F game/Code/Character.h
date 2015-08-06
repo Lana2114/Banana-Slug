@@ -1,4 +1,4 @@
-#ifndef _CHARACTER_H_
+﻿#ifndef _CHARACTER_H_
 #define _CHARACTER_H_
 
 #include "cocos2d.h"
@@ -10,22 +10,29 @@ USING_NS_CC;
 
 using namespace CocosDenshion;
 
-class Character
+class Character : public cocos2d::Layer
 {
 private:
 	Vec2 origin;
-	Size visibleSize;
+
 
 	Sprite* characterTexture;
 	PhysicsBody* characterBody;
 
 	bool _move;
 public:
+	Size visibleSize;
+	bool isDead;
 	Character(Layer* layer, Size visibleSize);
-	void update();
-	void moveRight();
-	void moveLeft();
+	void update(float delta, bool &isTouched, bool &ableToJump, float &velocity);
 	void jumpUp();
-	bool isMoved();
+	float getPositionX();
+	void setPositionX(float position);
+	float getContentSizeX();
+
+	//hàm kt nhan vat cham goc phai man hinh
+	bool isRight();
+	//biến đổi hướng của nhân vật
+	int changeDirect ;
 };
 #endif _CHARACTER_H_
